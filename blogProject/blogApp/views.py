@@ -10,7 +10,6 @@ def home(request):
 
     if src:
         all_blogs = Blogpost.objects.filter(title__icontains=src)
-    
         
     context = {
         'allBlogs': all_blogs,        
