@@ -12,9 +12,9 @@ def home(request):
         all_blogs = Blogpost.objects.filter(title__icontains=src)
         
     context = {
-        'allBlogs': all_blogs,        
+        'allBlogs': all_blogs,
+        'src':src,        
     }
-
     return render(request, 'home/home.html', context)
 
 

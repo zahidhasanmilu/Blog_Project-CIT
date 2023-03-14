@@ -249,10 +249,18 @@ Blog Home
 
 <!-- search section -->
 {% block search %}
+{% if src %}
+<form class="d-flex" method='GET' role="search">
+    <input class="form-control me-2" type="search" value="{{src}}" name='searchname' placeholder="Search"
+        aria-label="Search" />
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+{% else %}
 <form class="d-flex" method='GET' role="search">
     <input class="form-control me-2" type="search" name='searchname' placeholder="Search" aria-label="Search" />
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
+{% endif %}
 {% endblock search %}
 
 
@@ -262,19 +270,19 @@ Blog Home
 
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-            {% for b in allBlogs %}            
-            
+            {% for b in allBlogs %}
+
             <div class="col">
-                <div class="card h-100 shadow-sm"> <img
-                        src="{{b.image.url}}"
-                        class="card-img-top" alt="...">
+                <div class="card h-100 shadow-sm"> <img src="{{b.image.url}}" class="card-img-top" alt="...">
                     <div class="label-top shadow-sm">Asus Rog</div>
                     <div class="card-body">
-                        <div class="clearfix mb-3"> <p
-                                class="float-start badge rounded-pill bg-info">{{ b.published_date | date:"F d Y" }} </p> <p
-                                class="float-end"><a href="#" class="small text-muted">Reviews</a></p> </div>
+                        <div class="clearfix mb-3">
+                            <p class="float-start badge rounded-pill bg-info">{{ b.published_date | date:"F d Y" }} </p>
+                            <p class="float-end"><a href="#" class="small text-muted">Reviews</a></p>
+                        </div>
                         <h5 class="card-title">{{b.title}}</h5>
-                        <div class="text-center my-4"> <a href="{% url 'blogdetails' b.title %}" class="btn btn-info">See Full Blog</a> </div>
+                        <div class="text-center my-4"> <a href="{% url 'blogdetails' b.title %}"
+                                class="btn btn-info">See Full Blog</a> </div>
 
                     </div>
                 </div>
