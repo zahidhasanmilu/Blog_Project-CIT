@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+{% block body %}
+<div class="container pt-2">
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="fortitile" class="form-label">Title</label>
+            <input type="text" class="form-control" name='titles' id="fortitile" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="forDescription" class="form-label">Description</label>
+            <input type="text" class="form-control" name='descriptions' id="forDescription" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Default file input example</label>
+            <input class="form-control" required type="file" name='image' id="formFile">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}

@@ -266,6 +266,14 @@ Blog Home
 
 <!-- body section -->
 {% block body %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="container">
 
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
